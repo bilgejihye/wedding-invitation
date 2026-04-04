@@ -97,6 +97,17 @@
   .copy-btn:hover,.copy-btn.copied { background:var(--gold); color:var(--cream); }
   .copy-msg { font-size:11px; color:var(--gold); opacity:0; transition:opacity 0.3s; height:16px; }
   .copy-msg.show { opacity:1; }
+
+  .parking-box { background:var(--cream-dark); border:1px solid var(--gold-pale); border-radius:6px; padding:24px; }
+  .parking-notice { font-size:13px; color:var(--text-light); text-align:center; line-height:1.9; margin-bottom:20px; }
+  .parking-item { display:flex; gap:12px; margin-bottom:16px; align-items:flex-start; }
+  .parking-item:last-child { margin-bottom:0; }
+  .parking-icon { font-size:18px; margin-top:2px; flex-shrink:0; }
+  .parking-type { font-size:13px; font-weight:600; color:var(--brown); margin-bottom:6px; }
+  .parking-desc { font-size:12.5px; color:var(--text-light); }
+  .parking-link { display:block; font-size:12.5px; color:var(--gold); text-decoration:underline; text-underline-offset:3px; line-height:2; }
+  .parking-link:hover { color:var(--brown); }
+  .parking-min { font-size:11px; color:var(--text-light); }
   #footer { border-bottom:none; padding:40px 28px 60px; text-align:center; opacity:1; transform:none; }
   .footer-ornament { font-family:'Cormorant Garamond',serif; font-size:22px; color:var(--gold-light); letter-spacing:4px; margin-bottom:16px; }
   .footer-msg { font-size:12px; color:var(--text-light); letter-spacing:2px; line-height:2; }
@@ -187,8 +198,7 @@
     횡단보도를 건너세요
   </div>
   <div class="map-btns">
-    <a class="map-btn" href="https://map.kakao.com/link/to/관악문화원예절원,37.4763,126.9632" target="_blank">카카오맵 길찾기</a>
-    <a class="map-btn naver" href="https://map.naver.com/v5/search/관악문화원%20예절원" target="_blank">네이버맵 보기</a>
+    <a class="map-btn naver" style="border-color:var(--brown); color:var(--brown);" href="https://map.naver.com/v5/search/관악문화원%20예절원" target="_blank">네이버맵으로 보기</a>
   </div>
 </section>
 
@@ -196,35 +206,35 @@
   <div class="section-title">갤 러 리</div>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery1.jpg" alt="사진 1" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery1.jpg" alt="사진 1" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig1.jpg')">
       <p class="gallery-caption">2025년 11월 29일 세르비아 Sava 성당에서 청혼♡</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery2.jpg" alt="사진 2" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery2.jpg" alt="사진 2" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig2.jpg')">
       <p class="gallery-caption">2026년 3월 28일 혼인서약</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery3.jpg" alt="사진 3" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery3.jpg" alt="사진 3" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig3.jpg')">
       <p class="gallery-caption">세미와 지혜 법적 부부가 되었어요♡</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery4.jpg" alt="사진 4" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery4.jpg" alt="사진 4" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig4.jpg')">
       <p class="gallery-caption">NEW FAMILY♡</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery5.jpg" alt="사진 5" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery5.jpg" alt="사진 5" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig5.jpg')">
       <p class="gallery-caption">튀르키예 결혼식 이모저모</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery6.jpg" alt="사진 6" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery6.jpg" alt="사진 6" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig6.jpg')">
       <p class="gallery-caption">튀르키예 결혼식 이모저모</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery7.jpg" alt="사진 7" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery7.jpg" alt="사진 7" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig7.jpg')">
       <p class="gallery-caption">타지에서 가족이 되어준<br>재무팀 식구들</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery8.jpg" alt="사진 8" loading="lazy" onclick="openLightbox(this.src)">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery8.jpg" alt="사진 8" loading="lazy" onclick="openLightbox('https://bilgejihye.github.io/wedding-invitation/orig8.jpg')">
       <p class="gallery-caption">예쁜 아기가 찾아오려면 결혼식에서 아기를 품에 안아야 한대요!</p>
     </div>
   </div>
@@ -250,6 +260,28 @@
   </div>
 </section>
 
+
+<section id="parking">
+  <div class="section-title">주차 안내</div>
+  <div class="parking-box">
+    <p class="parking-notice">식장 내 주차가 불가하오니<br>아래 주차장을 이용해 주시면 감사하겠습니다.</p>
+    <div class="parking-item">
+      <span class="parking-icon">🅿️</span>
+      <div>
+        <p class="parking-type">갓길 주차</p>
+        <p class="parking-desc">식장 주변 갓길 주차 가능</p>
+      </div>
+    </div>
+    <div class="parking-item">
+      <span class="parking-icon">🅿️</span>
+      <div>
+        <p class="parking-type">유료 주차</p>
+        <a class="parking-link" href="https://naver.me/GlmoKR4a" target="_blank">관악구민종합체육센터 <span class="parking-min">(도보 1분)</span></a>
+        <a class="parking-link" href="https://naver.me/IgNG7HcT" target="_blank">서울특별시교육청 융합과학교육원 <span class="parking-min">(도보 6분)</span></a>
+      </div>
+    </div>
+  </div>
+</section>
 <section id="footer">
   <div class="footer-ornament">❦ ♥ ❦</div>
   <div class="footer-msg">두 사람의 새로운 시작을<br>함께 축복해 주세요</div>
