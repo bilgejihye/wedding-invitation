@@ -85,7 +85,7 @@
   .map-btn.naver:hover { background:var(--brown); color:var(--cream); }
   .gallery-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
   .gallery-item { display:flex; flex-direction:column; gap:8px; }
-  .gallery-item img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:4px; border:1px solid var(--gold-pale); display:block; }
+  .gallery-item img { width:100%; aspect-ratio:1; object-fit:cover; border-radius:4px; border:1px solid var(--gold-pale); display:block; cursor:pointer; }
   .gallery-caption { text-align:center; font-size:11px; color:var(--text-light); line-height:1.6; letter-spacing:0.3px; word-break:keep-all; }
   .account-card { background:var(--cream-dark); border:1px solid var(--gold-pale); border-radius:6px; padding:24px 28px; display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
   .account-info { flex:1; }
@@ -196,39 +196,45 @@
   <div class="section-title">갤 러 리</div>
   <div class="gallery-grid">
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery1.jpg" alt="사진 1" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery1.jpg" alt="사진 1" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">2025년 11월 29일 세르비아 Sava 성당에서 청혼♡</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery2.jpg" alt="사진 2" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery2.jpg" alt="사진 2" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">2026년 3월 28일 혼인서약</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery3.jpg" alt="사진 3" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery3.jpg" alt="사진 3" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">세미와 지혜 법적 부부가 되었어요♡</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery4.jpg" alt="사진 4" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery4.jpg" alt="사진 4" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">NEW FAMILY♡</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery5.jpg" alt="사진 5" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery5.jpg" alt="사진 5" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">튀르키예 결혼식 이모저모</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery6.jpg" alt="사진 6" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery6.jpg" alt="사진 6" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">튀르키예 결혼식 이모저모</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery7.jpg" alt="사진 7" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery7.jpg" alt="사진 7" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">타지에서 가족이 되어준<br>재무팀 식구들</p>
     </div>
     <div class="gallery-item">
-      <img src="https://bilgejihye.github.io/wedding-invitation/gallery8.jpg" alt="사진 8" loading="lazy">
+      <img src="https://bilgejihye.github.io/wedding-invitation/gallery8.jpg" alt="사진 8" loading="lazy" onclick="openLightbox(this.src)">
       <p class="gallery-caption">예쁜 아기가 찾아오려면 결혼식에서 아기를 품에 안아야 한대요!</p>
     </div>
   </div>
 </section>
+
+<!-- 라이트박스 -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:1000; align-items:center; justify-content:center;">
+  <img id="lightbox-img" src="" style="max-width:95vw; max-height:95vh; object-fit:contain; border-radius:4px;">
+  <div style="position:fixed; top:16px; right:20px; color:white; font-size:28px; cursor:pointer; line-height:1;">✕</div>
+</div>
 
 <section id="account">
   <div class="section-title">마음 전하실 곳</div>
@@ -256,7 +262,16 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('section:not(#hero):not(#footer)').forEach(s => observer.observe(s));
-function copyAccount(btn) {
+function openLightbox(src) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src = src;
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+  document.body.style.overflow = '';
+}
   navigator.clipboard.writeText('061-21-0776-573').then(() => {
     btn.classList.add('copied');
     btn.textContent = '✓ 복사됨';
